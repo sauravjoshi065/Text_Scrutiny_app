@@ -1,0 +1,30 @@
+<app-header></app-header>
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form (ngSubmit)="login()" #myForm="ngForm">
+        <h2>Login</h2>
+        <div class="inputbox">
+          <input type="email" id="email" name="email" [(ngModel)]="email" required (input)="checkEmailValidity()">
+          <label for="email">Email</label>
+        </div>
+        <div class="inputbox">
+          <input type="password" [(ngModel)]="password" name="Password" required>
+          <label for="">Password</label>
+        </div>
+        <div class="validator" *ngIf="validationerr">
+          <h6 class="validator-text">
+            Please enter valid information!
+          </h6>
+        </div>
+        <div class="forget">
+          <!--<label for=""><input type="checkbox">Remember Me <a href="#" (click)="clicked()">Forget Password</a></label>-->
+        </div>
+        <button type="submit" [disabled]="!emailValid">Log in</button>
+        <div class="register">
+          <p>Don't have a account <a href="/auth/register">Register</a></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
